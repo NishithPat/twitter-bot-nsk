@@ -92,5 +92,7 @@ async function v1() {
     getFollowers("-1");
 }
 
-v1()
+setInterval(() => {
+    v1();
+}, 120000);
 
