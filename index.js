@@ -1,6 +1,5 @@
 require('dotenv').config();
 const Twit = require('twit');
-const fs = require("fs");
 const mongoose = require("mongoose");
 const User = require("./models/screenName");
 
@@ -33,16 +32,6 @@ function getFollowers(next) {
 
         let arr = data.users.map(val => val.screen_name);
         newFollowing = [...newFollowing, ...arr];
-
-        // arr.forEach((ele) => {
-        //     User.bulkWrite([{
-        //         insertOne: {
-        //             document: {
-        //                 screen_name: ele
-        //             }
-        //         }
-        //     }])
-        // })
 
         if (next !== "0") {
             getFollowers(next);
@@ -96,13 +85,6 @@ function compareFunc() {
     }, 15000)
 
 }
-
-// setInterval(async () => {
-//     oldFollowing = (await User.find()).map(val => val.screen_name);
-//     newFollowing = [];
-//     getFollowers("-1");
-// }, 60000)
-
 
 async function v1() {
     oldFollowing = (await User.find()).map(val => val.screen_name);
