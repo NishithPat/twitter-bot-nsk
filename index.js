@@ -94,5 +94,5 @@ async function v1() {
 
 setInterval(() => {
     v1();
-}, 120000);
+}, 60000);
 
