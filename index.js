@@ -80,14 +80,11 @@ function compareFunc() {
         }])
     })
 
-    setTimeout(() => {
-        process.exit()
-    }, 15000)
-
 }
 
 async function v1() {
     oldFollowing = (await User.find()).map(val => val.screen_name);
+    console.log(oldFollowing);
     newFollowing = [];
     getFollowers("-1");
 }
