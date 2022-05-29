@@ -25,7 +25,7 @@ const T = new Twit({
 
 function getFollowers(next) {
 
-    T.get("friends/list", { screen_name: "dkni8mare", count: "200", cursor: next }, function (err, data, response) {
+    T.get("friends/list", { screen_name: "twitter_screen_name", count: "200", cursor: next }, function (err, data, response) {
         console.log(data.users.length);
         console.log(data.next_cursor_str);
         next = data.next_cursor_str;
@@ -91,5 +91,5 @@ async function v1() {
 
 setInterval(() => {
     v1();
-}, 60000);
+}, 60000); //change interval accordingly
 
